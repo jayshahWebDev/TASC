@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Play, Clock, ArrowRight, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -9,6 +10,7 @@ interface VideoItem {
   title: string;
   duration: string;
   thumbnail: string;
+  alt: string;
   videoUrl: string;
   desc: string;
 }
@@ -21,7 +23,8 @@ export default function VideoShowcase() {
       id: 1,
       title: "Tapovan Administrative Services Centre Introduction",
       duration: "3:45 Mins",
-      thumbnail: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/images/tasc_classroom.jpg",
+      alt: "Overview of TASC academic coaching and classroom learning",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       desc: "An overview of TASC's academic coaching, ethical guidance, and residential facilities.",
     },
@@ -29,7 +32,8 @@ export default function VideoShowcase() {
       id: 2,
       title: "A Day in the Life of a TASC Resident",
       duration: "5:20 Mins",
-      thumbnail: "https://images.unsplash.com/photo-1526976729451-9d41490f8253?auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/images/tasc_hostel.jpg",
+      alt: "Aspirant daily routine and residential living at TASC",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       desc: "Follow an aspirant from the morning meditation circle to the midnight study room.",
     },
@@ -37,9 +41,10 @@ export default function VideoShowcase() {
       id: 3,
       title: "Jain Ethics and Public Service Roundtable",
       duration: "8:10 Mins",
-      thumbnail: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+      thumbnail: "/images/tasc_seminar.jpg",
+      alt: "Guest civil service officer addressing candidates on administrative ethics",
       videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      desc: "Retired IAS and IPS officers discuss values like compassion and integrity in modern governance.",
+      desc: "Senior IAS and IPS officers discuss values like compassion and integrity in modern governance.",
     },
   ];
 
@@ -78,13 +83,15 @@ export default function VideoShowcase() {
             <div
               key={vid.id}
               onClick={() => setActiveVideo(vid)}
-              className="bg-white border border-slate-100/60 rounded-2xl overflow-hidden shadow-2xs hover:shadow-lg transition-all duration-300 group cursor-pointer hover:-translate-y-1"
+              className="bg-white border border-slate-150 rounded-2xl overflow-hidden shadow-2xs hover:shadow-lg transition-all duration-300 group cursor-pointer hover:-translate-y-1 flex flex-col"
             >
-              {/* Thumbnail Container */}
-              <div className="relative aspect-video w-full overflow-hidden bg-black">
-                <img
+              {/* Thumbnail Container with Next.js Image Optimization */}
+              <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
+                <Image
                   src={vid.thumbnail}
-                  alt={vid.title}
+                  alt={vid.alt}
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover opacity-90 group-hover:scale-103 transition-transform duration-500"
                 />
                 
@@ -96,20 +103,22 @@ export default function VideoShowcase() {
                 </div>
 
                 {/* Duration Tag */}
-                <div className="absolute bottom-3 right-3 bg-accent/70 backdrop-blur-xs text-[10px] text-white font-bold py-1 px-2.5 rounded-full flex items-center gap-1.5">
+                <div className="absolute bottom-3 right-3 bg-accent/80 backdrop-blur-xs text-[10px] text-white font-bold py-1 px-2.5 rounded-full flex items-center gap-1.5">
                   <Clock className="w-3 h-3" />
                   <span>{vid.duration}</span>
                 </div>
               </div>
 
               {/* Text Meta */}
-              <div className="p-6">
-                <h4 className="text-sm font-bold text-accent group-hover:text-primary transition-colors leading-snug">
-                  {vid.title}
-                </h4>
-                <p className="text-xs text-slate-500 leading-relaxed mt-2">
-                  {vid.desc}
-                </p>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h4 className="text-sm font-bold text-accent group-hover:text-primary transition-colors leading-snug">
+                    {vid.title}
+                  </h4>
+                  <p className="text-xs text-slate-500 leading-relaxed mt-2">
+                    {vid.desc}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
@@ -123,12 +132,13 @@ export default function VideoShowcase() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setActiveVideo(null)}
-              className="fixed inset-0 bg-accent/95 z-55 flex items-center justify-center p-6"
+              className="fixed inset-0 bg-accent/95 z-55 flex items-center justify-center p-6 backdrop-blur-sm"
             >
               {/* Close Button */}
               <button
+                type="button"
                 onClick={() => setActiveVideo(null)}
-                className="absolute top-6 right-6 p-2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+                className="absolute top-6 right-6 p-2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full transition-colors cursor-pointer"
                 aria-label="Close Player"
               >
                 <X className="w-6 h-6" />

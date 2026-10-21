@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import TascLogo from "./TascLogo";
 import { Play, ArrowRight, Award, Shield, Compass, BookOpen } from "lucide-react";
@@ -47,7 +48,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             {/* TASC Large Logo Banner */}
             <motion.div variants={itemVariants} className="mb-6">
-              <TascLogo size="md" />
+              <TascLogo size="md" priority />
             </motion.div>
 
             {/* Tagline */}
@@ -72,23 +73,23 @@ export default function Hero() {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 hover:bg-[#85164d] hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 group text-base"
               >
                 <span>Apply For Admission</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
               
-              <a
-                href="#video-showcase"
+              <Link
+                href="/facilities"
                 className="flex items-center justify-center gap-2 bg-white text-accent hover:text-primary px-8 py-4 rounded-full font-bold border border-slate-200 hover:border-primary/30 shadow-sm hover:shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 text-base"
               >
                 <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-primary group-hover:bg-primary/10">
                   <Play className="w-3 h-3 fill-current ml-0.5" />
                 </div>
-                <span>Watch Campus Video</span>
-              </a>
+                <span>Explore Campus Life</span>
+              </Link>
             </motion.div>
 
             {/* Floating feature highlights under buttons */}

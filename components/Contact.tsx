@@ -1,9 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
-import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle2 } from "lucide-react";
+import React, { useState, useId } from "react";
+import { Phone, MessageCircle, Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 
 export default function Contact() {
+  const nameId = useId();
+  const phoneId = useId();
+  const emailId = useId();
+  const programId = useId();
+  const messageId = useId();
+
+  // Controlled form state
   const [formState, setFormState] = useState({
     name: "",
     phone: "",
@@ -11,21 +18,63 @@ export default function Contact() {
     program: "UPSC Civil Services",
     message: "",
   });
+
+  // Touched state for immediate user feedback
+  const [touched, setTouched] = useState({
+    name: false,
+    phone: false,
+    email: false,
+  });
+
+  // Submission state
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  // Validation Regex
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  // Supports 10-digit Indian numbers, optional country code (+91), spaces, or dashes
+  const phoneRegex = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/;
+
+  // Field validations
+  const isNameValid = formState.name.trim().length >= 2;
+  const isEmailValid = emailRegex.test(formState.email.trim());
+  const isPhoneValid = phoneRegex.test(formState.phone.replace(/[\s\-]/g, ""));
+
+  const isFormValid = isNameValid && isEmailValid && isPhoneValid;
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleBlur = (field: "name" | "phone" | "email") => {
+    setTouched((prev) => ({ ...prev, [field]: true }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Mark all required fields as touched
+    setTouched({
+      name: true,
+      phone: true,
+      email: true,
+    });
+
+    if (!isFormValid || isSubmitting) {
+      return;
+    }
+
     setIsSubmitting(true);
-    
-    // Simulate API request
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setSubmitError("");
+
+    try {
+      // Simulate asynchronous API call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       setIsSuccess(true);
       setFormState({
         name: "",
@@ -34,8 +83,19 @@ export default function Contact() {
         program: "UPSC Civil Services",
         message: "",
       });
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+      setTouched({
+        name: false,
+        phone: false,
+        email: false,
+      });
+
+      // Clear success notification after 6 seconds
+      setTimeout(() => setIsSuccess(false), 6000);
+    } catch {
+      setSubmitError("An error occurred while submitting. Please try again or reach out on WhatsApp.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -43,15 +103,15 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         
         {/* Intro */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/5 px-4 py-1.5 rounded-full">
-            Inquiries & Location
+            Inquiries & Admissions Desk
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-accent mt-4 tracking-tight">
             Connect With Admissions
           </h2>
           <p className="text-base text-slate-500 mt-4 leading-relaxed">
-            Reach out to our administrative team directly, visit our Gandhinagar campus, or send us a query using the form below.
+            Reach out to our administrative team directly, visit our Gandhinagar administrative campus, or submit an inquiry using the verified form below.
           </p>
         </div>
 
@@ -64,7 +124,7 @@ export default function Contact() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               
               {/* Phone Node */}
-              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4">
+              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4 shadow-2xs">
                 <div className="p-3 bg-primary/5 text-primary rounded-xl">
                   <Phone className="w-5 h-5" />
                 </div>
@@ -77,14 +137,14 @@ export default function Contact() {
               </div>
 
               {/* WhatsApp Node */}
-              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4">
+              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4 shadow-2xs">
                 <div className="p-3 bg-[#25D366]/10 text-[#25D366] rounded-xl">
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">WhatsApp chat</span>
+                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">WhatsApp Desk</span>
                   <a
-                    href="https://wa.me/918200596350?text=Hello,%20I%20have%20an%20admission%2520inquiry."
+                    href="https://wa.me/918200596350?text=Hello,%20I%20have%20an%20admission%20inquiry%20for%20TASC."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-sm font-bold text-accent hover:text-[#25D366] transition-colors mt-1"
@@ -95,12 +155,12 @@ export default function Contact() {
               </div>
 
               {/* Email Node */}
-              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4">
+              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4 shadow-2xs">
                 <div className="p-3 bg-amber-50 text-secondary rounded-xl">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Email support</span>
+                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Email Support</span>
                   <a href="mailto:admissions@tascindia.org" className="block text-sm font-bold text-accent hover:text-primary transition-colors mt-1">
                     admissions@tascindia.org
                   </a>
@@ -108,14 +168,14 @@ export default function Contact() {
               </div>
 
               {/* Address Node */}
-              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4">
+              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4 shadow-2xs">
                 <div className="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Campus address</span>
+                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">Administrative Address</span>
                   <p className="text-xs font-bold text-accent mt-1 leading-snug">
-                    Tapovan Sanskardham, Koba Highway, Gandhinagar, Gujarat 382007
+                    TASC Administrative Block, Tapovan Sanskardham, Koba Highway, Gandhinagar 382007
                   </p>
                 </div>
               </div>
@@ -140,110 +200,140 @@ export default function Contact() {
           <div className="lg:col-span-6 bg-surface border border-slate-100 rounded-3xl p-8 shadow-xs">
             <h3 className="text-xl font-extrabold text-accent mb-2">Admission Inquiry Form</h3>
             <p className="text-xs text-slate-500 mb-8 leading-relaxed">
-              Please fill this form and our academic counsellor will get in touch with you within 24 hours to schedule an entry test.
+              Please fill this form and our academic counsellor will review your details and contact you within 24 hours to schedule an entry assessment.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} noValidate className="space-y-5">
               {/* Full Name */}
               <div>
-                <label htmlFor="name" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                  Full Name
+                <label htmlFor={nameId} className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                  Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id={nameId}
                   name="name"
-                  required
                   value={formState.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white border border-slate-150 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800"
-                  placeholder="Enter your name"
+                  onBlur={() => handleBlur("name")}
+                  className={`w-full px-4 py-3 bg-white border rounded-xl text-sm focus:outline-none transition-colors text-slate-800 ${
+                    touched.name && !isNameValid
+                      ? "border-red-400 focus:border-red-500 bg-red-50/20"
+                      : "border-slate-200 focus:border-primary"
+                  }`}
+                  placeholder="Enter your full name"
                 />
+                {touched.name && !isNameValid && (
+                  <p className="text-red-500 text-[11px] mt-1.5 flex items-center gap-1 font-medium">
+                    <AlertCircle className="w-3.5 h-3.5" /> Please enter your name (minimum 2 characters).
+                  </p>
+                )}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {/* Phone Number */}
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    Phone Number
+                  <label htmlFor={phoneId} className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                    Phone Number <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
-                    id="phone"
+                    id={phoneId}
                     name="phone"
-                    required
                     value={formState.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white border border-slate-150 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800"
-                    placeholder="Enter phone number"
+                    onBlur={() => handleBlur("phone")}
+                    className={`w-full px-4 py-3 bg-white border rounded-xl text-sm focus:outline-none transition-colors text-slate-800 ${
+                      touched.phone && !isPhoneValid
+                        ? "border-red-400 focus:border-red-500 bg-red-50/20"
+                        : "border-slate-200 focus:border-primary"
+                    }`}
+                    placeholder="e.g. 9876543210"
                   />
+                  {touched.phone && !isPhoneValid && (
+                    <p className="text-red-500 text-[11px] mt-1.5 flex items-center gap-1 font-medium">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" /> Enter valid 10-digit number.
+                    </p>
+                  )}
                 </div>
 
                 {/* Email Address */}
                 <div>
-                  <label htmlFor="email" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                    Email Address
+                  <label htmlFor={emailId} className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                    Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id={emailId}
                     name="email"
-                    required
                     value={formState.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white border border-slate-150 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800"
-                    placeholder="Enter email address"
+                    onBlur={() => handleBlur("email")}
+                    className={`w-full px-4 py-3 bg-white border rounded-xl text-sm focus:outline-none transition-colors text-slate-800 ${
+                      touched.email && !isEmailValid
+                        ? "border-red-400 focus:border-red-500 bg-red-50/20"
+                        : "border-slate-200 focus:border-primary"
+                    }`}
+                    placeholder="name@example.com"
                   />
+                  {touched.email && !isEmailValid && (
+                    <p className="text-red-500 text-[11px] mt-1.5 flex items-center gap-1 font-medium">
+                      <AlertCircle className="w-3.5 h-3.5 shrink-0" /> Enter valid email address.
+                    </p>
+                  )}
                 </div>
               </div>
 
               {/* Course Interest */}
               <div>
-                <label htmlFor="program" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                <label htmlFor={programId} className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                   Program Interested In
                 </label>
                 <select
-                  id="program"
+                  id={programId}
                   name="program"
                   value={formState.program}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white border border-slate-150 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800"
+                  className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800 cursor-pointer"
                 >
-                  <option>UPSC Civil Services</option>
-                  <option>GPSC Preparation</option>
-                  <option>IAS Foundation</option>
-                  <option>Interview Guidance</option>
-                  <option>Test Series & Assessment</option>
+                  <option value="UPSC Civil Services">UPSC Civil Services (IAS / IPS / IFS)</option>
+                  <option value="GPSC Preparation">GPSC Preparation (Class 1 & 2)</option>
+                  <option value="IAS Foundation">IAS Foundation (Undergraduate Cohort)</option>
+                  <option value="Interview Guidance">Interview Guidance & Mock Board</option>
+                  <option value="Test Series & Assessment">Test Series & Evaluation Program</option>
                 </select>
               </div>
 
               {/* Message */}
               <div>
-                <label htmlFor="message" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                <label htmlFor={messageId} className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                   Message / Queries (Optional)
                 </label>
                 <textarea
-                  id="message"
+                  id={messageId}
                   name="message"
                   rows={4}
                   value={formState.message}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-white border border-slate-150 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800 resize-none"
-                  placeholder="Any details you would like to mention..."
+                  className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800 resize-none"
+                  placeholder="Tell us about your educational background or preparation timeline..."
                 ></textarea>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button with Loading Spinner and Disabled State */}
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-[#85164d] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md shadow-primary/10 flex items-center justify-center gap-2 text-sm disabled:opacity-50 cursor-pointer"
+                disabled={isSubmitting || (touched.name && !isFormValid)}
+                className="w-full bg-primary hover:bg-[#85164d] text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-300 shadow-md shadow-primary/10 flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 {isSubmitting ? (
-                  <span>Submitting Inquiries...</span>
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Submitting Inquiry...</span>
+                  </>
                 ) : (
                   <>
-                    <span>Submit Inquiry</span>
+                    <span>Submit Admission Inquiry</span>
                     <Send className="w-4 h-4" />
                   </>
                 )}
@@ -251,9 +341,20 @@ export default function Contact() {
 
               {/* Success Notification */}
               {isSuccess && (
-                <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 flex items-center gap-3 text-emerald-800 text-xs animate-fade-in mt-4">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Success! Your query has been logged. Our counsellor will contact you shortly.</span>
+                <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 flex items-center gap-3 text-emerald-800 text-xs animate-fade-in mt-4">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                  <div>
+                    <strong className="block font-bold">Inquiry Successfully Submitted!</strong>
+                    <span>Your query has been logged. Our academic counsellor will contact you shortly.</span>
+                  </div>
+                </div>
+              )}
+
+              {/* Error Notification */}
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center gap-3 text-red-800 text-xs animate-fade-in mt-4">
+                  <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
+                  <span>{submitError}</span>
                 </div>
               )}
 

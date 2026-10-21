@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { BookOpen, Check, ArrowRight, ArrowDownLeft } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -162,13 +163,13 @@ export default function Programs() {
                   </ul>
 
                   {/* CTA button */}
-                  <a
-                    href="#contact"
+                  <Link
+                    href="/contact"
                     className="flex items-center justify-between w-full bg-white hover:bg-primary text-slate-700 hover:text-white border border-slate-200 hover:border-transparent py-3 px-5 rounded-xl text-xs font-bold transition-all duration-300 group/btn shadow-2xs hover:shadow-md"
                   >
                     <span>Inquire / Enroll Now</span>
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             );
