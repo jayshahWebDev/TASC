@@ -3,8 +3,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import TascLogo from "./TascLogo";
-import { Play, ArrowRight, Award, Shield, Compass, BookOpen } from "lucide-react";
+import {
+  Play,
+  ArrowRight,
+  Award,
+  Shield,
+  Compass,
+  BookOpen,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -46,17 +52,14 @@ export default function Hero() {
         >
           {/* Left Column: Text & CTAs */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* TASC Large Logo Banner */}
-            <motion.div variants={itemVariants} className="mb-6">
-              <TascLogo size="md" priority />
-            </motion.div>
-
             {/* Tagline */}
             <motion.h1
               variants={itemVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-accent leading-tight tracking-tight mb-6"
             >
-              Building <span className="text-primary bg-clip-text">Ethical Leaders</span> <br />
+              Building{" "}
+              <span className="text-primary bg-clip-text">Ethical Leaders</span>{" "}
+              <br />
               for India's Future
             </motion.h1>
 
@@ -65,7 +68,10 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg text-slate-600 font-normal leading-relaxed mb-8 max-w-xl"
             >
-              Tapovan Administrative Services Centre prepares aspiring UPSC and GPSC candidates through academic excellence, rigorous mentorship, military-like discipline, and value-based leadership rooted in core Jain principles.
+              Tapovan Administrative Services Centre prepares aspiring UPSC and
+              GPSC candidates through academic excellence, rigorous mentorship,
+              military-like discipline, and value-based leadership rooted in
+              core Jain principles.
             </motion.p>
 
             {/* Buttons & Actions */}
@@ -80,7 +86,7 @@ export default function Hero() {
                 <span>Apply For Admission</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-              
+
               <Link
                 href="/facilities"
                 className="flex items-center justify-center gap-2 bg-white text-accent hover:text-primary px-8 py-4 rounded-full font-bold border border-slate-200 hover:border-primary/30 shadow-sm hover:shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-300 text-base"
@@ -101,19 +107,25 @@ export default function Hero() {
                 <div className="p-2 bg-primary/5 rounded-lg text-primary">
                   <Award className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-700">Residential Academy</span>
+                <span className="text-xs font-semibold text-slate-700">
+                  Residential Academy
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-secondary/10 rounded-lg text-secondary">
                   <Shield className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-700">Value-Based Ethics</span>
+                <span className="text-xs font-semibold text-slate-700">
+                  Value-Based Ethics
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-accent/5 rounded-lg text-accent">
                   <Compass className="w-5 h-5" />
                 </div>
-                <span className="text-xs font-semibold text-slate-700">Officer Mentorship</span>
+                <span className="text-xs font-semibold text-slate-700">
+                  Officer Mentorship
+                </span>
               </div>
             </motion.div>
           </div>
@@ -140,7 +152,7 @@ export default function Hero() {
                   className="object-cover scale-105 hover:scale-110 transition-transform duration-700"
                   priority
                 />
-                
+
                 {/* Subtle soft gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none" />
               </div>
@@ -156,8 +168,12 @@ export default function Hero() {
                   UPSC
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Preparation</span>
-                  <span className="text-xs font-extrabold text-accent">IAS | IPS | IFS</span>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                    Preparation
+                  </span>
+                  <span className="text-xs font-extrabold text-accent">
+                    IAS | IPS | IFS
+                  </span>
                 </div>
               </motion.div>
 
@@ -171,8 +187,12 @@ export default function Hero() {
                   GPSC
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">State Services</span>
-                  <span className="text-xs font-extrabold text-accent">Deputy Collector | DySP</span>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                    State Services
+                  </span>
+                  <span className="text-xs font-extrabold text-accent">
+                    Deputy Collector | DySP
+                  </span>
                 </div>
               </motion.div>
 
