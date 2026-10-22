@@ -9,7 +9,8 @@ export default function Trust() {
     {
       title: "UPSC Civil Services",
       subtitle: "Union Public Service Commission",
-      description: "Rigorous preparation for India's prestigious civil services examinations including IAS, IPS, and IFS. Led by experienced faculty and retired administrative officers.",
+      description:
+        "Rigorous preparation for India's prestigious civil services examinations including IAS, IPS, and IFS.",
       icon: GraduationCap,
       color: "border-primary",
       iconColor: "text-primary bg-primary/5",
@@ -23,7 +24,8 @@ export default function Trust() {
     {
       title: "GPSC Preparation",
       subtitle: "Gujarat Public Service Commission",
-      description: "Dedicated coaching for Class 1 & 2 officer positions in the state administration. Deep curriculum focus matching the latest GPSC patterns.",
+      description:
+        "Dedicated coaching for Class 1 & 2 officer positions in the state administration. Deep curriculum focus matching the latest GPSC patterns.",
       icon: Landmark,
       color: "border-secondary",
       iconColor: "text-secondary bg-secondary/10",
@@ -37,7 +39,8 @@ export default function Trust() {
     {
       title: "Leadership & Ethics",
       subtitle: "Value-based Administration",
-      description: "Developing administrators who blend core competence with spiritual discipline, integrity, compassion, and commitment to public welfare.",
+      description:
+        "Developing administrators who blend core competence with spiritual discipline, integrity, compassion, and commitment to public welfare.",
       icon: Sparkles,
       color: "border-accent",
       iconColor: "text-accent bg-accent/5",
@@ -85,7 +88,9 @@ export default function Trust() {
             Academic Excellence and Ethical Foundations
           </h2>
           <p className="text-base text-slate-500 mt-4 leading-relaxed">
-            We prepare aspirants for the toughest exams of governance while instilling the spiritual discipline and legacy of dedication required to guide our nation.
+            We prepare aspirants for the toughest exams of governance while
+            instilling the spiritual discipline and legacy of dedication
+            required to guide our nation.
           </p>
         </div>
 
@@ -108,7 +113,9 @@ export default function Trust() {
                 <div>
                   {/* Badge & Icon Row */}
                   <div className="flex items-center justify-between mb-6">
-                    <div className={`p-3.5 rounded-xl ${card.iconColor} transition-transform group-hover:scale-110 duration-300`}>
+                    <div
+                      className={`p-3.5 rounded-xl ${card.iconColor} transition-transform group-hover:scale-110 duration-300`}
+                    >
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-white border border-slate-100 px-3 py-1 rounded-full shadow-2xs">
@@ -130,26 +137,7 @@ export default function Trust() {
                   <p className="text-slate-600 text-sm leading-relaxed mb-6">
                     {card.description}
                   </p>
-
-                  {/* Feature Bullets */}
-                  <ul className="space-y-3 mb-8">
-                    {card.features.map((feature, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2 text-xs font-medium text-slate-500">
-                        <ChevronRight className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-
-                {/* Primary Action link */}
-                <a
-                  href="#programs"
-                  className="flex items-center gap-1.5 text-xs font-bold text-primary group-hover:gap-2.5 transition-all mt-auto"
-                >
-                  <span>Explore Curriculum</span>
-                  <ChevronRight className="w-4 h-4" />
-                </a>
               </motion.div>
             );
           })}

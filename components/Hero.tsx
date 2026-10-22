@@ -55,12 +55,13 @@ export default function Hero() {
             {/* Tagline */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-accent leading-tight tracking-tight mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[2.65rem] xl:text-5xl 2xl:text-[3.5rem] font-extrabold text-accent leading-[1.15] tracking-tight mb-6"
             >
-              Building{" "}
-              <span className="text-primary bg-clip-text">Ethical Leaders</span>{" "}
-              <br />
-              for India's Future
+              <span className="block sm:whitespace-nowrap">
+                Empowering{" "}
+                <span className="text-primary">Jain Aspirants</span>
+              </span>
+              <span className="block">to Serve the Nation</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -68,10 +69,12 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg text-slate-600 font-normal leading-relaxed mb-8 max-w-xl"
             >
-              Tapovan Administrative Services Centre prepares aspiring UPSC and
-              GPSC candidates through academic excellence, rigorous mentorship,
-              military-like discipline, and value-based leadership rooted in
-              core Jain principles.
+              Rooted in the timeless principles of Jainism, Tapovan
+              Administrative Services Centre prepares aspiring UPSC and GPSC
+              candidates through academic excellence, expert mentorship,
+              disciplined learning, and value-based education. We nurture future
+              civil servants who lead with integrity, compassion, and a
+              commitment to serving the nation.
             </motion.p>
 
             {/* Buttons & Actions */}

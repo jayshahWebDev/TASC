@@ -28,26 +28,47 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-surface relative overflow-hidden border-y border-slate-100">
+    <section
+      id="about"
+      className="py-24 bg-surface relative overflow-hidden border-y border-slate-100"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
           {/* Left Column: Story & History */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/5 px-4 py-1.5 rounded-full mb-6">
               Our Heritage & Vision
             </span>
-            
+
             <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight tracking-tight mb-6">
               Cultivating the Legacy of Administrative Leadership
             </h2>
 
             <p className="text-slate-600 text-base leading-relaxed mb-6">
-              TASC (Tapovan Administrative Services Centre) is a premium residential civil services preparation institute dedicated to developing future administrators who combine profound competence, absolute integrity, value-based leadership, and selfless service to society.
+              At{" "}
+              <span className="text-primary font-medium">
+                Tapovan Administrative Services Centre (TASC)
+              </span>
+              , we believe that true leadership is built on knowledge,
+              integrity, discipline, and a commitment to serving society. Our
+              institute is dedicated to preparing aspiring civil servants for{" "}
+              <span className="text-primary font-medium">
+                UPSC and GPSC examinations
+              </span>
+              , combining academic excellence with the timeless values and
+              principles of Jain philosophy.
             </p>
 
             <p className="text-slate-600 text-base leading-relaxed mb-8">
-              Drawing inspiration from the rich historical legacy of revered Jain administrators—such as **Vastupal**, **Tejpal**, **Vimal Mantri**, and **Sajan Mantri**—our institution seeks to revive this heritage of excellence. We prepare our students for meaningful contributions to public administration and ethical policymaking.
+              Inspired by the remarkable legacy of respected Jain leaders and
+              administrators such as{" "}
+              <span className="text-primary font-medium">
+                Vastupal, Tejpal, Vimal Mantri, and Sajan Mantri
+              </span>
+              , TASC aims to carry forward their tradition of wisdom, ethical
+              leadership, and service to society. We strive to nurture a new
+              generation of knowledgeable, responsible, and compassionate civil
+              servants who contribute meaningfully to the nation.
             </p>
 
             {/* Core Values / Focus Cards */}
@@ -79,9 +100,13 @@ export default function About() {
             <div className="bg-primary/5 border-l-4 border-primary rounded-r-xl p-5 flex items-start gap-4">
               <ShieldAlert className="w-5 h-5 text-primary shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-sm font-bold text-accent">Inspired by Tapovan Principles</h4>
+                <h4 className="text-sm font-bold text-accent">
+                  Inspired by Tapovan Principles
+                </h4>
                 <p className="text-xs text-slate-600 leading-relaxed mt-1">
-                  We are dedicated to preparing upcoming cohorts of administrative officers who carry a deep commitment to spiritual values, discipline, and nation-building.
+                  We are dedicated to preparing upcoming cohorts of
+                  administrative officers who carry a deep commitment to
+                  spiritual values, discipline, and nation-building.
                 </p>
               </div>
             </div>
@@ -121,13 +146,16 @@ export default function About() {
                   100%
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Environment</span>
-                  <span className="text-xs font-extrabold text-accent">Residential Study Focus</span>
+                  <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                    Environment
+                  </span>
+                  <span className="text-xs font-extrabold text-accent">
+                    Residential Study Focus
+                  </span>
                 </div>
               </div>
             </motion.div>
           </div>
-
         </div>
       </div>
     </section>

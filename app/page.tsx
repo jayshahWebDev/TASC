@@ -5,10 +5,15 @@ import Trust from "@/components/Trust";
 import About from "@/components/About";
 import Programs from "@/components/Programs";
 import Facilities from "@/components/Facilities";
-import VideoShowcase from "@/components/VideoShowcase";
 import WhyChoose from "@/components/WhyChoose";
 import Testimonials from "@/components/Testimonials";
-import { ArrowRight, Compass, GraduationCap, Home as HomeIcon, PhoneCall } from "lucide-react";
+import {
+  ArrowRight,
+  Compass,
+  GraduationCap,
+  Home as HomeIcon,
+  PhoneCall,
+} from "lucide-react";
 
 export default function Home() {
   return (
@@ -30,15 +35,6 @@ export default function Home() {
 
       {/* Programs Teaser */}
       <Programs />
-      <div className="bg-white py-6 text-center border-b border-slate-100">
-        <Link
-          href="/programs"
-          className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all"
-        >
-          <span>Explore All Programs & Student Journey Roadmap</span>
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
 
       {/* Facilities Teaser */}
       <Facilities />
@@ -51,9 +47,6 @@ export default function Home() {
           <ArrowRight className="w-4 h-4" />
         </Link>
       </div>
-
-      {/* Video Showcase */}
-      <VideoShowcase />
 
       {/* Why Choose & Testimonials */}
       <WhyChoose />
@@ -69,7 +62,8 @@ export default function Home() {
             Begin Your Administrative Journey with TASC
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto text-base leading-relaxed mb-8">
-            Experience an elite residential environment combining academic rigor, officer mentorship, and Jain moral discipline.
+            Experience an elite residential environment combining academic
+            rigor, officer mentorship, and Jain moral discipline.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link

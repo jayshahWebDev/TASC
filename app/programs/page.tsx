@@ -8,7 +8,8 @@ import { ArrowRight, HelpCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Academic Programs | Tapovan Administrative Services Centre (TASC)",
-  description: "Explore UPSC Civil Services, GPSC Preparation, IAS Foundation, Mock Interview Panels, and Test Series offered at TASC.",
+  description:
+    "Explore UPSC Civil Services, GPSC Preparation, IAS Foundation, Mock Interview Panels, and Test Series offered at TASC.",
 };
 
 export default function ProgramsPage() {
@@ -25,16 +26,14 @@ export default function ProgramsPage() {
             Our Academic Programs
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            From comprehensive UPSC and GPSC coaching to early college foundation modules and officer mock interview panels.
+            From comprehensive UPSC and GPSC coaching to early college
+            foundation modules and officer mock interview panels.
           </p>
         </div>
       </section>
 
       {/* Main Programs Component */}
       <Programs />
-
-      {/* Student Journey Roadmap */}
-      <StudentJourney />
 
       {/* Admission Process Timeline */}
       <AdmissionProcess />
@@ -49,7 +48,8 @@ export default function ProgramsPage() {
             Need Guidance Choosing the Right Program?
           </h3>
           <p className="text-sm text-slate-500 mb-6 leading-relaxed">
-            Our senior academic counsellors provide 1-on-1 syllabus mapping to help aspirants pick the ideal preparation roadmap.
+            Our senior academic counsellors provide 1-on-1 syllabus mapping to
+            help aspirants pick the ideal preparation roadmap.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

@@ -1,7 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import TascLogo from "./TascLogo";
-import { Twitter, Facebook, Youtube, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
+import {
+  Twitter,
+  Facebook,
+  Youtube,
+  Linkedin,
+  Instagram,
+  ArrowUpRight,
+} from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -25,30 +32,52 @@ export default function Footer() {
     <footer className="bg-surface border-t border-slate-100 py-16 text-xs text-slate-500">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16">
-          
           {/* Col 1: Branding */}
           <div className="lg:col-span-4 space-y-6">
             <Link href="/" className="inline-block focus:outline-none">
               <TascLogo size="sm" />
             </Link>
             <p className="text-slate-500 leading-relaxed text-xs">
-              Tapovan Administrative Services Centre (TASC) is a premium residential civil services academy preparing UPSC and GPSC candidates through administrative rigor, disciplined mentorship, and ethical leadership rooted in Jain values.
+              Tapovan Administrative Services Centre (TASC) is a premium
+              residential civil services academy preparing UPSC and GPSC
+              candidates through administrative rigor, disciplined mentorship,
+              and ethical leadership rooted in Jain values.
             </p>
             <div className="flex items-center gap-3">
               {/* Social icons */}
-              <a href="#" className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs" aria-label="Twitter">
+              <a
+                href="#"
+                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
+                aria-label="Twitter"
+              >
                 <Twitter className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs" aria-label="Facebook">
+              <a
+                href="#"
+                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
+                aria-label="Facebook"
+              >
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs" aria-label="Youtube">
+              <a
+                href="#"
+                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
+                aria-label="Youtube"
+              >
                 <Youtube className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs" aria-label="Linkedin">
+              <a
+                href="#"
+                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
+                aria-label="Linkedin"
+              >
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs" aria-label="Instagram">
+              <a
+                href="#"
+                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
+                aria-label="Instagram"
+              >
                 <Instagram className="w-4 h-4" />
               </a>
             </div>
@@ -56,11 +85,16 @@ export default function Footer() {
 
           {/* Col 2: Quick Links */}
           <div className="lg:col-span-2 space-y-4 lg:pl-4">
-            <h4 className="font-bold text-accent text-sm tracking-wider uppercase">Quick Links</h4>
+            <h4 className="font-bold text-accent text-sm tracking-wider uppercase">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-primary transition-colors flex items-center gap-0.5 group">
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors flex items-center gap-0.5 group"
+                  >
                     <span>{link.name}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
@@ -71,11 +105,16 @@ export default function Footer() {
 
           {/* Col 3: Programs */}
           <div className="lg:col-span-3 space-y-4 lg:pl-4">
-            <h4 className="font-bold text-accent text-sm tracking-wider uppercase">Our Programs</h4>
+            <h4 className="font-bold text-accent text-sm tracking-wider uppercase">
+              Our Programs
+            </h4>
             <ul className="space-y-3">
               {programs.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="hover:text-primary transition-colors flex items-center gap-0.5 group">
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors flex items-center gap-0.5 group"
+                  >
                     <span>{link.name}</span>
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </Link>
@@ -86,47 +125,76 @@ export default function Footer() {
 
           {/* Col 4: Explicit TASC Administrative Contact info */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="font-bold text-accent text-sm tracking-wider uppercase">Administrative Office</h4>
+            <h4 className="font-bold text-accent text-sm tracking-wider uppercase">
+              Administrative Office
+            </h4>
             <ul className="space-y-3.5 text-[11px] leading-relaxed">
               <li className="flex items-start gap-2.5">
-                <span className="font-bold text-accent shrink-0">Helpline:</span>
-                <a href="tel:+918200596350" className="hover:text-primary font-medium">
+                <span className="font-bold text-accent shrink-0">
+                  Helpline:
+                </span>
+                <a
+                  href="tel:+918200596350"
+                  className="hover:text-primary font-medium"
+                >
                   +91 82005 96350
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="font-bold text-accent shrink-0">Email:</span>
-                <a href="mailto:admissions@tascindia.org" className="hover:text-primary font-medium">
+                <a
+                  href="mailto:admissions@tascindia.org"
+                  className="hover:text-primary font-medium"
+                >
                   admissions@tascindia.org
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="font-bold text-accent shrink-0">Address:</span>
                 <span>
-                  TASC Administrative Block, Tapovan Administrative Services Centre, Tapovan Sanskardham Campus, Ahmedabad-Gandhinagar Highway, Koba Circle, Gandhinagar, Gujarat - 382007
+                  21-A Parelise Sol Paradise Society Lane, Ahmedabad, Gujarat
+                  380013
                 </span>
               </li>
               <li className="pt-2 border-t border-slate-200/50">
-                <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">Managed By</span>
-                <span className="font-bold text-slate-700 text-xs">TYAG TRUST</span>
+                <span className="text-[10px] text-slate-400 font-bold block uppercase tracking-wider">
+                  Managed By
+                </span>
+                <span className="font-bold text-slate-700 text-xs">
+                  TYAG TRUST
+                </span>
               </li>
             </ul>
           </div>
-
         </div>
 
         {/* Copyright divider */}
         <div className="border-t border-slate-200/50 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[11px] text-slate-400">
-            © {currentYear} Tapovan Administrative Services Centre (TASC). All rights reserved.
+            © {currentYear} Tapovan Administrative Services Centre (TASC). All
+            rights reserved.
           </p>
           <div className="flex gap-6 text-[10px] text-slate-400">
-            <Link href="/about" className="hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-primary transition-colors">Terms of Admission</Link>
-            <Link href="/facilities" className="hover:text-primary transition-colors">Rules & Regulations</Link>
+            <Link
+              href="/about"
+              className="hover:text-primary transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/contact"
+              className="hover:text-primary transition-colors"
+            >
+              Terms of Admission
+            </Link>
+            <Link
+              href="/facilities"
+              className="hover:text-primary transition-colors"
+            >
+              Rules & Regulations
+            </Link>
           </div>
         </div>
-
       </div>
     </footer>
   );
