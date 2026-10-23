@@ -16,7 +16,7 @@ import {
   Sun,
   ShieldCheck,
   Clock,
-  QrCode
+  QrCode,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -24,49 +24,37 @@ export default function Facilities() {
   const facilitiesList = [
     {
       title: "24/7 Library Access",
-      desc: "Quiet, air-conditioned workspace equipped with reference desks, administrative archives, and private desks.",
+      desc: "A quiet and comfortable study space available around the clock, allowing students to prepare, revise, and study at their own pace.",
       icon: BookOpen,
       color: "text-primary bg-primary/5",
     },
     {
       title: "Residential Hostel",
-      desc: "Premium, distraction-free in-campus accommodation designed specifically for intensive preparation.",
+      desc: "On campus accommodation that provides students with a comfortable living environment and easy access to study facilities.",
       icon: Home,
       color: "text-amber-600 bg-amber-50",
     },
     {
-      title: "In-House Coaching",
-      desc: "Daily interactive classes from specialized faculty covering core subjects and optionals.",
-      icon: GraduationCap,
-      color: "text-emerald-600 bg-emerald-50",
-    },
-    {
       title: "Personal Mentorship",
-      desc: "1-on-1 performance mapping, answer writing critique, and mental health checkpoints with experts.",
+      desc: "Mentorship and guidance to help students track their progress, improve their preparation, and work towards their UPSC and GPSC goals.",
       icon: Users,
       color: "text-indigo-600 bg-indigo-50",
     },
     {
-      title: "Weekly Test Series",
-      desc: "Strictly-timed mock exam formats under simulated hall settings, followed by evaluation dashboard ranks.",
-      icon: CalendarDays,
-      color: "text-red-600 bg-red-50",
-    },
-    {
       title: "Guest Sessions by Officers",
-      desc: "Periodic interactive seminars and strategy workshops run by serving and retired IAS/IPS/GPSC officers.",
+      desc: "Interactive sessions with serving and retired civil servants who share their experiences, practical insights, and guidance for UPSC and GPSC preparation.",
       icon: UserCheck,
       color: "text-cyan-600 bg-cyan-50",
     },
     {
       title: "Nutritious Jain Food",
-      desc: "Fresh, healthy, Satvik meals prepared in compliance with core Jain principles to support concentration.",
+      desc: "Fresh, nutritious Satvik meals prepared according to Jain dietary principles, supporting students health and daily well-being.",
       icon: Apple,
       color: "text-pink-600 bg-pink-50",
     },
     {
       title: "Focused Study Environment",
-      desc: "A strictly managed distraction-free digital ecosystem promoting camaraderie and peer group learnings.",
+      desc: "A disciplined and supportive campus atmosphere that encourages consistent study habits, peer learning, and focused exam preparation.",
       icon: Search,
       color: "text-slate-600 bg-slate-100",
     },
@@ -106,24 +94,28 @@ export default function Facilities() {
   ];
 
   return (
-    <section id="facilities" className="py-24 bg-surface relative border-b border-slate-100">
+    <section
+      id="facilities"
+      className="py-24 bg-surface relative border-b border-slate-100"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/5 px-4 py-1.5 rounded-full">
             Ecosystem & Lifestyle
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-accent mt-4 tracking-tight">
-            World-Class Infrastructure
+            A Campus Designed for Excellence
           </h2>
           <p className="text-base text-slate-500 mt-4 leading-relaxed">
-            TASC provides an elite, self-contained residential preparation ecosystem designed to optimize learning curves and eliminate life distractions.
+            TASC provides an elite, self-contained residential preparation
+            ecosystem designed to optimize learning curves and eliminate life
+            distractions.
           </p>
         </div>
 
         {/* Facilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {facilitiesList.map((facility, idx) => {
             const Icon = facility.icon;
             return (
@@ -131,7 +123,9 @@ export default function Facilities() {
                 key={idx}
                 className="bg-white border border-slate-100 hover:border-slate-200 rounded-2xl p-6.5 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col items-start group hover:-translate-y-1"
               >
-                <div className={`p-3 rounded-xl ${facility.color} mb-5 group-hover:scale-115 transition-transform duration-300`}>
+                <div
+                  className={`p-3 rounded-xl ${facility.color} mb-5 group-hover:scale-115 transition-transform duration-300`}
+                >
                   <Icon className="w-5 h-5" />
                 </div>
                 <h4 className="text-sm font-bold text-accent mb-2.5 group-hover:text-primary transition-colors">
@@ -147,13 +141,11 @@ export default function Facilities() {
 
         {/* Rules & Regulations - Styled directly inspired by the brochure pages */}
         <div className="bg-white border border-slate-100 rounded-3xl p-8 lg:p-12 shadow-md relative overflow-hidden">
-          
           {/* Saffron side flare */}
           <div className="absolute top-0 right-0 w-24 h-24 bg-secondary/5 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
             {/* Left Col: Rules List */}
             <div className="lg:col-span-8">
               <div className="flex items-center gap-3 mb-6">
@@ -161,13 +153,19 @@ export default function Facilities() {
                   <Scale className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Residency Code</span>
-                  <h3 className="text-2xl font-extrabold text-accent">Rules & Regulations</h3>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    Residency Code
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-accent">
+                    Rules & Regulations
+                  </h3>
                 </div>
               </div>
-              
+
               <p className="text-slate-600 text-sm leading-relaxed mb-8">
-                To maintain a clean mental environment and rigorous preparation cycle, residents are expected to commit fully to the code of conduct:
+                To maintain a clean mental environment and rigorous preparation
+                cycle, residents are expected to commit fully to the code of
+                conduct:
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -179,8 +177,12 @@ export default function Facilities() {
                         <Icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <h4 className="text-xs font-bold text-slate-800">{rule.title}</h4>
-                        <p className="text-[11px] text-slate-500 leading-normal mt-1">{rule.desc}</p>
+                        <h4 className="text-xs font-bold text-slate-800">
+                          {rule.title}
+                        </h4>
+                        <p className="text-[11px] text-slate-500 leading-normal mt-1">
+                          {rule.desc}
+                        </p>
                       </div>
                     </div>
                   );
@@ -193,12 +195,16 @@ export default function Facilities() {
               <span className="text-[9px] font-bold text-primary uppercase tracking-widest bg-primary/5 px-2.5 py-1 rounded-md mb-4">
                 Admissions open
               </span>
-              
-              <h4 className="text-sm font-bold text-accent mb-2">Want to Join the Batch?</h4>
+
+              <h4 className="text-sm font-bold text-accent mb-2">
+                Want to Join the Batch?
+              </h4>
               <p className="text-[11px] text-slate-500 leading-relaxed mb-6">
-                Scan below or click the WhatsApp group link to receive syllabus structures, hostel brochures, and admission tests schedules directly.
+                Scan below or click the WhatsApp group link to receive syllabus
+                structures, hostel brochures, and admission tests schedules
+                directly.
               </p>
-              
+
               {/* Illustrated QR code slot */}
               <div className="w-36 h-36 bg-white border border-slate-150 rounded-2xl p-3 shadow-2xs relative group flex items-center justify-center">
                 <QrCode className="w-full h-full text-accent opacity-90 group-hover:scale-95 transition-transform duration-300" />
@@ -217,10 +223,8 @@ export default function Facilities() {
                 <span>WhatsApp: 82005 96350</span>
               </a>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

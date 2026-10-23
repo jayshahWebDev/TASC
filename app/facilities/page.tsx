@@ -27,8 +27,8 @@ export default function FacilitiesPage() {
             Facilities & Campus Life
           </h1>
           <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Discover our world-class residential ecosystem, 24/7 library, Satvik
-            dining, and disciplined campus life designed for aspirants.
+            Discover our student focused residential ecosystem, 24/7 library,
+            Satvik dining, and disciplined campus life designed for aspirants.
           </p>
         </div>
       </section>

@@ -1,14 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import TascLogo from "./TascLogo";
-import {
-  Twitter,
-  Facebook,
-  Youtube,
-  Linkedin,
-  Instagram,
-  ArrowUpRight,
-} from "lucide-react";
+import { Instagram, ArrowUpRight } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,11 +14,9 @@ export default function Footer() {
   ];
 
   const programs = [
-    { name: "UPSC Civil Services", href: "/programs" },
-    { name: "GPSC Preparation", href: "/programs" },
-    { name: "IAS Foundation", href: "/programs" },
+    { name: "UPSC Civil Services Preparation", href: "/programs" },
+    { name: "GPSC Civil Services Preparation", href: "/programs" },
     { name: "Interview Guidance", href: "/programs" },
-    { name: "Test Series", href: "/programs" },
   ];
 
   return (
@@ -38,7 +29,7 @@ export default function Footer() {
               <TascLogo size="sm" />
             </Link>
             <p className="text-slate-500 leading-relaxed text-xs">
-              Tapovan Administrative Services Centre (TASC) is a premium
+              Tapovan Administrative Services Centre (TASC) is a values driven
               residential civil services academy preparing UPSC and GPSC
               candidates through administrative rigor, disciplined mentorship,
               and ethical leadership rooted in Jain values.
@@ -46,35 +37,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               {/* Social icons */}
               <a
-                href="#"
-                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
-                aria-label="Youtube"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
-                aria-label="Linkedin"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
+                href="https://www.instagram.com/t.a.s.c.upsc?exln=Mjc2eGxjM3JobDBh"
                 className="p-2 bg-white hover:bg-primary hover:text-white border border-slate-150 rounded-lg transition-all shadow-3xs"
                 aria-label="Instagram"
               >
@@ -129,15 +92,27 @@ export default function Footer() {
               Administrative Office
             </h4>
             <ul className="space-y-3.5 text-[11px] leading-relaxed">
-              <li className="flex items-start gap-2.5">
+              <li className="flex flex-col items-start gap-2.5">
                 <span className="font-bold text-accent shrink-0">
                   Helpline:
                 </span>
+                <a
+                  href="tel:+918799476054"
+                  className="hover:text-primary font-medium"
+                >
+                  +91 87994 76054
+                </a>
                 <a
                   href="tel:+918200596350"
                   className="hover:text-primary font-medium"
                 >
                   +91 82005 96350
+                </a>
+                <a
+                  href="tel:+917990636141"
+                  className="hover:text-primary font-medium"
+                >
+                  +91 79906 36141
                 </a>
               </li>
               <li className="flex items-start gap-2.5">

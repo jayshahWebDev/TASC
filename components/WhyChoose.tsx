@@ -1,7 +1,16 @@
 "use client";
 
 import React from "react";
-import { CheckCircle2, ShieldCheck, Milestone, Compass, Users2, Target, HeartHandshake, Flag } from "lucide-react";
+import {
+  CheckCircle2,
+  ShieldCheck,
+  Milestone,
+  Compass,
+  Users2,
+  Target,
+  HeartHandshake,
+  Flag,
+} from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function WhyChoose() {
@@ -11,12 +20,6 @@ export default function WhyChoose() {
       desc: "Fully integrated campus with library, accommodation, and food, minimizing travel stress and distractions.",
       icon: CheckCircle2,
       color: "text-primary bg-primary/5",
-    },
-    {
-      title: "Experienced Mentors",
-      desc: "Receive coaching from subject matter experts and direct guidance from retired civil servants.",
-      icon: Compass,
-      color: "text-secondary bg-secondary/15",
     },
     {
       title: "Value-Based Education",
@@ -37,12 +40,6 @@ export default function WhyChoose() {
       color: "text-amber-600 bg-amber-50",
     },
     {
-      title: "Focused Preparation",
-      desc: "Carefully structured syllabus milestones, daily answer checklists, and consistent mock drills.",
-      icon: Target,
-      color: "text-red-600 bg-red-50",
-    },
-    {
       title: "Ethical Foundation",
       desc: "Administrative ethics coaching deeply inspired by legendary historical ministers like Vastupal and Tejpal.",
       icon: HeartHandshake,
@@ -59,27 +56,33 @@ export default function WhyChoose() {
   return (
     <section className="py-24 bg-white relative border-b border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
           {/* Left Column: Heading & Graphic Callout */}
           <div className="lg:col-span-4 flex flex-col items-start lg:sticky lg:top-24">
             <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/5 px-4 py-1.5 rounded-full mb-6">
               Our Edge
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-accent leading-tight tracking-tight mb-6">
-              Why Leaders Choose TASC
+              Why Aspirants Choose TASC
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed mb-8">
-              Preparing for civil service exams requires more than textbooks. It demands a supportive lifestyle, mental peace, and an environment that fosters constant concentration.
+              Preparing for civil service exams requires more than textbooks. It
+              demands a supportive lifestyle, mental peace, and an environment
+              that fosters constant concentration.
             </p>
 
             {/* Quick Fact Card */}
             <div className="bg-surface border border-slate-100 rounded-2xl p-6.5 w-full">
-              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Campus Standard</span>
-              <h4 className="text-sm font-bold text-accent mt-1 mb-2">Focused Satvik Ecosystem</h4>
+              <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
+                Campus Standard
+              </span>
+              <h4 className="text-sm font-bold text-accent mt-1 mb-2">
+                Focused Satvik Ecosystem
+              </h4>
               <p className="text-xs text-slate-500 leading-relaxed">
-                By combining military-like study schedules with traditional Jain moral principles, we prepare administrators who are strong both academically and ethically.
+                By combining military-like study schedules with traditional Jain
+                moral principles, we prepare administrators who are strong both
+                academically and ethically.
               </p>
             </div>
           </div>
@@ -94,10 +97,12 @@ export default function WhyChoose() {
                   className="bg-surface border border-slate-100/50 rounded-2xl p-6 shadow-2xs hover:shadow-md transition-shadow flex items-start gap-4 group"
                 >
                   {/* Icon */}
-                  <div className={`p-3 rounded-xl ${benefit.color} shrink-0 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`p-3 rounded-xl ${benefit.color} shrink-0 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <Icon className="w-5 h-5" />
                   </div>
-                  
+
                   {/* Text Details */}
                   <div>
                     <h3 className="text-sm font-bold text-accent group-hover:text-primary transition-colors">
@@ -111,9 +116,7 @@ export default function WhyChoose() {
               );
             })}
           </div>
-
         </div>
-
       </div>
     </section>
   );

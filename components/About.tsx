@@ -133,7 +133,7 @@ export default function About() {
               <div className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white">
                 <Image
                   src="/images/study_hall.png"
-                  alt="TASC Premium Campus Study Hall"
+                  alt="TASC Campus Study Hall"
                   fill
                   sizes="(max-w-768px) 100vw, 420px"
                   className="object-cover hover:scale-105 transition-transform duration-700"

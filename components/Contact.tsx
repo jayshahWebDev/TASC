@@ -147,48 +147,10 @@ export default function Contact() {
                     Call Helpline
                   </span>
                   <a
-                    href="tel:+918200596350"
+                    href="tel:+918799476054"
                     className="block text-sm font-bold text-accent hover:text-primary transition-colors mt-1"
                   >
-                    +91 82005 96350
-                  </a>
-                </div>
-              </div>
-
-              {/* WhatsApp Node */}
-              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4 shadow-2xs">
-                <div className="p-3 bg-[#25D366]/10 text-[#25D366] rounded-xl">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">
-                    WhatsApp Desk
-                  </span>
-                  <a
-                    href="https://wa.me/918200596350?text=Hello,%20I%20have%20an%20admission%20inquiry%20for%20TASC."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-sm font-bold text-accent hover:text-[#25D366] transition-colors mt-1"
-                  >
-                    +91 82005 96350
-                  </a>
-                </div>
-              </div>
-
-              {/* Email Node */}
-              <div className="border border-slate-100 p-5 rounded-2xl bg-surface flex items-start gap-4 shadow-2xs">
-                <div className="p-3 bg-amber-50 text-secondary rounded-xl">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">
-                    Email Support
-                  </span>
-                  <a
-                    href="mailto:admissions@tascindia.org"
-                    className="block text-sm font-bold text-accent hover:text-primary transition-colors mt-1"
-                  >
-                    admissions@tascindia.org
+                    +91 87994 76054
                   </a>
                 </div>
               </div>
@@ -343,17 +305,12 @@ export default function Contact() {
                   className="w-full px-4 py-3 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-primary transition-colors text-slate-800 cursor-pointer"
                 >
                   <option value="UPSC Civil Services">
-                    UPSC Civil Services (IAS / IPS / IFS)
+                    UPSC Civil Services Preparation (IAS / IPS / IFS)
                   </option>
                   <option value="GPSC Preparation">
-                    GPSC Preparation (Class 1 & 2)
+                    GPSC Civil Services Preparation (Class 1 & 2)
                   </option>
-                  <option value="IAS Foundation">
-                    IAS Foundation (Undergraduate Cohort)
-                  </option>
-                  <option value="Interview Guidance">
-                    Interview Guidance & Mock Board
-                  </option>
+                  <option value="Interview Guidance">Interview Guidance</option>
                   <option value="Test Series & Assessment">
                     Test Series & Evaluation Program
                   </option>

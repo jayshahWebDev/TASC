@@ -22,7 +22,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
+    // { name: "About", href: "/about" },
     { name: "Programs", href: "/programs" },
     { name: "Facilities", href: "/facilities" },
     { name: "Contact", href: "/contact" },
@@ -65,7 +65,9 @@ export default function Header() {
                   key={link.name}
                   href={link.href}
                   className={`text-sm font-semibold transition-colors relative py-2 group ${
-                    active ? "text-primary" : "text-slate-600 hover:text-primary"
+                    active
+                      ? "text-primary"
+                      : "text-slate-600 hover:text-primary"
                   }`}
                 >
                   {link.name}
@@ -82,13 +84,13 @@ export default function Header() {
           {/* Call to Actions (Desktop) */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="https://wa.me/918200596350?text=Hello,%20I%20am%20interested%20in%20TASC%20admissions."
+              href="https://chat.whatsapp.com/D6gC4px5mY9FbbBg3l9Mys"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-4 py-2 border border-slate-200 rounded-full text-slate-700 hover:text-white hover:bg-[#25D366] hover:border-transparent transition-all duration-300 text-sm font-semibold group shadow-sm hover:shadow-md"
             >
               <MessageCircle className="w-4 h-4 text-[#25D366] group-hover:text-white transition-colors" />
-              <span>WhatsApp</span>
+              <span>WhatsApp Group</span>
             </a>
             <Link
               href="/contact"
